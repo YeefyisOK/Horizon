@@ -38,6 +38,14 @@ jobs:
       - name: Set current date as environment variable
         run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
+      - name: Upload scoring data
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: horizon-run-${{ env.DATE }}
+          path: data/mcp-runs/
+          retention-days: 90
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
