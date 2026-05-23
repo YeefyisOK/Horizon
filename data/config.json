@@ -1,142 +1,176 @@
 {
   "version": "1.0",
   "ai": {
-    "provider": "deepseek",
-    "model": "deepseek-v4-flash",
-    "base_url": "https://api.deepseek.com",
-    "api_key_env": "OPENAI_API_KEY",
+    "provider": "gemini",
+    "model": "gemini-2.5-flash",
+    "api_key_env": "GOOGLE_API_KEY",
     "temperature": 0.3,
     "max_tokens": 8192,
     "languages": [
-      "zh",
-      "en"
+      "en",
+      "zh"
     ],
     "analysis_concurrency": 5,
-    "enrichment_concurrency": 5
+    "enrichment_concurrency": 3
   },
   "sources": {
     "github": [
       {
-        "type": "user_events",
-        "username": "karpathy",
+        "type": "repo_releases",
+        "owner": "openai",
+        "repo": "whisper",
         "enabled": true
       },
       {
         "type": "repo_releases",
-        "owner": "vllm-project",
-        "repo": "vllm",
+        "owner": "SYSTRAN",
+        "repo": "faster-whisper",
         "enabled": true
       },
       {
         "type": "repo_releases",
-        "owner": "sgl-project",
-        "repo": "sglang",
+        "owner": "ggerganov",
+        "repo": "whisper.cpp",
         "enabled": true
       },
       {
         "type": "repo_releases",
-        "owner": "triton-lang",
-        "repo": "triton",
+        "owner": "PaddlePaddle",
+        "repo": "PaddleOCR",
+        "enabled": true
+      },
+      {
+        "type": "repo_releases",
+        "owner": "snakers4",
+        "repo": "silero-vad",
+        "enabled": true
+      },
+      {
+        "type": "repo_releases",
+        "owner": "jianfch",
+        "repo": "stable-ts",
         "enabled": true
       }
     ],
     "hackernews": {
       "enabled": true,
       "fetch_top_stories": 30,
-      "min_score": 150
+      "min_score": 100
     },
     "rss": [
       {
-        "name": "Simon Willison",
-        "url": "https://simonwillison.net/atom/everything/",
+        "name": "OpenAI Blog",
+        "url": "https://openai.com/blog/rss.xml",
         "enabled": true,
-        "category": "ai-tools"
+        "category": "competitor"
       },
       {
-        "name": "GitHub Trending - Daily",
-        "url": "https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml",
+        "name": "Google AI Blog",
+        "url": "https://blog.google/technology/ai/rss/",
         "enabled": true,
-        "category": "github-trending"
+        "category": "competitor"
       },
       {
-        "name": "LWN.net",
-        "url": "https://lwn.net/headlines/full_text?key=${LWN_KEY}",
+        "name": "Apple Developer News",
+        "url": "https://developer.apple.com/news/rss/news.rss",
         "enabled": true,
-        "category": "linux-kernel"
+        "category": "platform"
+      },
+      {
+        "name": "Apple Machine Learning Research",
+        "url": "https://machinelearning.apple.com/rss.xml",
+        "enabled": true,
+        "category": "platform"
+      },
+      {
+        "name": "TechCrunch",
+        "url": "https://techcrunch.com/feed/",
+        "enabled": true,
+        "category": "tech-news"
+      },
+      {
+        "name": "The Verge",
+        "url": "https://www.theverge.com/rss/index.xml",
+        "enabled": true,
+        "category": "tech-news"
+      },
+      {
+        "name": "Ars Technica",
+        "url": "https://feeds.arstechnica.com/arstechnica/index",
+        "enabled": true,
+        "category": "tech-news"
+      },
+      {
+        "name": "Product Hunt",
+        "url": "https://www.producthunt.com/feed",
+        "enabled": true,
+        "category": "launches"
       }
     ],
     "reddit": {
       "enabled": true,
       "subreddits": [
         {
+          "subreddit": "macapps",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 15,
+          "min_score": 5
+        },
+        {
+          "subreddit": "VideoEditing",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 15,
+          "min_score": 10
+        },
+        {
           "subreddit": "MachineLearning",
           "enabled": true,
           "sort": "hot",
           "time_filter": "day",
           "fetch_limit": 15,
-          "min_score": 60
+          "min_score": 50
         },
         {
-          "subreddit": "LocalLLaMA",
+          "subreddit": "speechrecognition",
           "enabled": true,
           "sort": "hot",
           "time_filter": "day",
-          "fetch_limit": 15,
-          "min_score": 60
+          "fetch_limit": 10,
+          "min_score": 3
         }
       ],
       "users": [],
-      "fetch_comments": 10
+      "fetch_comments": 5
     },
     "telegram": {
-      "enabled": true,
-      "channels": [
-        {
-          "channel": "zaihuapd",
-          "enabled": true,
-          "fetch_limit": 20
-        }
-      ]
+      "enabled": false,
+      "channels": []
     }
   },
   "filtering": {
-    "ai_score_threshold": 8.0,
-    "time_window_hours": 24
+    "ai_score_threshold": 7.0,
+    "time_window_hours": 48
   },
   "webhook": {
     "enabled": true,
     "url_env": "HORIZON_WEBHOOK_URL",
-    "delivery": "summary_and_items",
-    "overview_position": "last",
-    "platform": "feishu",
-    "layout": "collapsible",
+    "delivery": "summary",
+    "platform": "generic",
+    "layout": "markdown",
     "fallback_layout": "markdown",
     "languages": [
+      "en",
       "zh"
     ],
     "request_body": {
-      "msg_type": "interactive",
-      "card": {
-        "schema": "2.0",
-        "config": {
-          "wide_screen_mode": true
-        },
-        "header": {
-          "title": {
-            "tag": "plain_text",
-            "content": "#{message_title}"
-          },
-          "template": "blue"
-        },
-        "body": {
-          "elements": [
-            {
-              "tag": "markdown",
-              "content": "#{summary}"
-            }
-          ]
-        }
-      }
+      "chat_id": "${HORIZON_TG_CHAT_ID}",
+      "text": "#{summary?limit=4000&split=---}",
+      "parse_mode": "Markdown",
+      "disable_web_page_preview": true
     },
     "headers": ""
   }
