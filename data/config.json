@@ -119,8 +119,8 @@
         "category": "finance"
       },
       {
-        "name": "Reuters Business",
-        "url": "https://www.reutersagency.com/feed/?best-topics=business-finance",
+        "name": "Yahoo Finance Market News",
+        "url": "https://finance.yahoo.com/news/rssindex",
         "enabled": true,
         "category": "finance"
       }
