@@ -5,45 +5,33 @@ date: 2026-05-23
 lang: zh
 ---
 
-> From 147 items, 3 important content pieces were selected
+> From 146 items, 2 important content pieces were selected
 
 ---
 
-1. [Microsoft starts canceling Claude Code licenses](#item-1) ⭐️ 7.0/10
-2. [Project Glasswing: An Initial Update](#item-2) ⭐️ 7.0/10
-3. [VSAS-Bench: Real-Time Evaluation of Visual Streaming Assistant Models](#item-3) ⭐️ 7.0/10
+1. [Project Glasswing: An Initial Update](#item-1) ⭐️ 8.0/10
+2. [Arm shares extend weekly rally to almost 50%, and Starbucks pulls the plug on an AI project](#item-2) ⭐️ 8.0/10
 
 ---
 
 <a id="item-1"></a>
-## [Microsoft starts canceling Claude Code licenses](https://www.theverge.com/tech/930447/microsoft-claude-code-discontinued-notepad) ⭐️ 7.0/10
+## [Project Glasswing: An Initial Update](https://www.anthropic.com/research/glasswing-initial-update) ⭐️ 8.0/10
 
-Microsoft is reportedly canceling Claude Code licenses for its developers to push them toward its own Copilot CLI, sparking discussions on developer tool preferences and token costs.
+Anthropic's "Project Glasswing" (related to Mythos/Codex Security) is an AI initiative for code vulnerability detection, showing promising accuracy in internal assessments but facing skepticism from some external experts regarding its superiority over existing tools.
 
-hackernews · robertkarl · May 22, 17:32 · [社区讨论](https://news.ycombinator.com/item?id=48238896)
+hackernews · louiereederson · May 22, 19:31 · [社区讨论](https://news.ycombinator.com/item?id=48240419)
 
-**标签**: `#Microsoft`, `#Claude Code`, `#GitHub Copilot`, `#AI Developer Tools`, `#Anthropic`
+**标签**: `#AI`, `#Code Security`, `#Developer Tools`, `#Anthropic`, `#AI Product`
 
 ---
 
 <a id="item-2"></a>
-## [Project Glasswing: An Initial Update](https://www.anthropic.com/research/glasswing-initial-update) ⭐️ 7.0/10
+## [Arm shares extend weekly rally to almost 50%, and Starbucks pulls the plug on an AI project](https://www.cnbc.com/2026/05/22/arm-shares-extend-weekly-rally-to-almost-50percent-and-starbucks-pulls-the-plug-on-an-ai-project.html) ⭐️ 8.0/10
 
-Anthropic released an initial update on Project Glasswing, its research initiative focused on using AI to discover and analyze high-severity software vulnerabilities.
+Arm shares surged by almost 50% this week, while Starbucks announced it is discontinuing an AI project.
 
-hackernews · louiereederson · May 22, 19:31 · [社区讨论](https://news.ycombinator.com/item?id=48240419)
+rss · CNBC Top News · May 22, 17:32
 
-**标签**: `#Anthropic`, `#AI Research`, `#Cybersecurity`, `#Software Development`
-
----
-
-<a id="item-3"></a>
-## [VSAS-Bench: Real-Time Evaluation of Visual Streaming Assistant Models](https://machinelearning.apple.com/research/vsas-bench-streaming-assistant) ⭐️ 7.0/10
-
-Apple researchers have introduced VSAS-Bench, a new benchmark designed to evaluate streaming vision-language models on real-time metrics like proactiveness and consistency.
-
-rss · Apple Machine Learning Research · May 22, 00:00
-
-**标签**: `#Apple`, `#Artificial Intelligence`, `#Computer Vision`, `#Machine Learning`
+**标签**: `#US Stock Market`, `#AI Product`, `#Arm`, `#Starbucks`, `#Market News`
 
 ---
