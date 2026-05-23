@@ -1,8 +1,10 @@
 """Main orchestrator coordinating the entire workflow."""
 
 import asyncio
+import json
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 from typing import List, Dict
 from urllib.parse import urlparse
 import httpx
@@ -89,6 +91,9 @@ class HorizonOrchestrator:
             # 4. Analyze with AI
             analyzed_items = await self._analyze_content(merged_items)
             self.console.print(f"🤖 Analyzed {len(analyzed_items)} items with AI\n")
+
+            # 4.5 Save scored items for audit
+            self._save_scored_items(analyzed_items)
 
             # 5. Filter by score threshold
             threshold = self.config.filtering.ai_score_threshold
@@ -531,6 +536,32 @@ class HorizonOrchestrator:
         enricher = ContentEnricher(ai_client)
         await enricher.enrich_batch(items)
         self.console.print(f"   Enriched {len(items)} items\n")
+
+    def _save_scored_items(self, items: List[ContentItem]) -> None:
+        """Save all scored items to a JSON file for audit purposes."""
+        today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        runs_dir = Path("data/runs")
+        runs_dir.mkdir(parents=True, exist_ok=True)
+        filepath = runs_dir / f"{today}-scored.json"
+
+        records = []
+        for item in items:
+            records.append({
+                "title": item.title,
+                "url": str(item.url),
+                "source_type": item.source_type.value,
+                "author": item.author,
+                "ai_score": item.ai_score,
+                "ai_reason": item.ai_reason,
+                "ai_summary": item.ai_summary,
+                "ai_tags": item.ai_tags,
+                "published_at": item.published_at.isoformat() if item.published_at else None,
+            })
+        records.sort(key=lambda x: x["ai_score"] or -1, reverse=True)
+
+        with open(filepath, "w", encoding="utf-8") as f:
+            json.dump(records, f, ensure_ascii=False, indent=2)
+        self.console.print(f"📊 Saved {len(records)} scored items to: {filepath}\n")
 
     async def _analyze_content(self, items: List[ContentItem]) -> List[ContentItem]:
         """Analyze content items with AI.
