@@ -31,6 +31,8 @@ jobs:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           HORIZON_WEBHOOK_URL: https://api.telegram.org/bot${{ secrets.HORIZON_TG_BOT_TOKEN }}/sendMessage
           HORIZON_TG_CHAT_ID: ${{ secrets.HORIZON_TG_CHAT_ID }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
         run: uv run horizon --hours 48
 
       - name: Set current date as environment variable

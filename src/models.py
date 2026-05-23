@@ -124,6 +124,8 @@ class RedditConfig(BaseModel):
     """Reddit source configuration."""
 
     enabled: bool = True
+    client_id_env: str = "REDDIT_CLIENT_ID"
+    client_secret_env: str = "REDDIT_CLIENT_SECRET"
     subreddits: List[RedditSubredditConfig] = Field(default_factory=list)
     users: List[RedditUserConfig] = Field(default_factory=list)
     fetch_comments: int = 5  # top comments per post, 0 to disable
