@@ -105,6 +105,24 @@
         "url": "https://www.producthunt.com/feed",
         "enabled": true,
         "category": "launches"
+      },
+      {
+        "name": "CNBC Top News",
+        "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100003114",
+        "enabled": true,
+        "category": "finance"
+      },
+      {
+        "name": "Bloomberg Markets",
+        "url": "https://feeds.bloomberg.com/markets/news.rss",
+        "enabled": true,
+        "category": "finance"
+      },
+      {
+        "name": "Reuters Business",
+        "url": "https://www.reutersagency.com/feed/?best-topics=business-finance",
+        "enabled": true,
+        "category": "finance"
       }
     ],
     "reddit": {
