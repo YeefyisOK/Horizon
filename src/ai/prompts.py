@@ -41,9 +41,9 @@ Score content 0-10:
 
 **7-8: High value**
 - New subtitle/transcription/translation tools
-- Speech recognition or OCR research breakthroughs
+- Speech recognition or OCR research breakthroughs with practical applications
 - macOS platform changes
-- Significant AI product launches or research papers
+- Significant AI product launches
 - US economic data releases (jobs, CPI, GDP), notable stock moves
 - Whisper/faster-whisper/PaddleOCR/key dependency updates
 
@@ -54,6 +54,7 @@ Score content 0-10:
 - Indie dev or Mac ecosystem trends
 
 **3-4: Low priority**
+- Academic benchmark papers, model evaluation studies, research-only publications (unless directly applicable to speech/subtitle/OCR)
 - Routine tech news, minor product updates
 - Social media drama, gaming, crypto
 - Enterprise SaaS that doesn't affect the reader
